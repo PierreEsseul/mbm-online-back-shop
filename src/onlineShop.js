@@ -55,6 +55,7 @@ async function getArticleByIdShop(id_shop) {
     } 
     catch (error) {
         return null;
+        //pour test 
     }
 };
 
