@@ -42,21 +42,4 @@ router.post("/payment", async (req, res) => {
 });
 
 
-// router.post("/payment", async (req, res) => {
-// 	let { amount, id } = req.body
-// 	console.log('/payment : ', { amount, id });
-
-// 		const payment = await stripe.paymentIntents.create({
-// 			amount,
-// 			currency: "USD",
-// 			description: "Spatula company",
-// 			payment_method: id,
-// 			confirm: true
-// 		})
-// 		console.log("Payment", payment)
-// 		res.send({
-// 			clientSecret: paymentItent.clientSecret,
-// 		})
-// })
-
 export default router;
