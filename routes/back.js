@@ -25,11 +25,17 @@ router.get('/', async (req, res) => {
 const stripe = new Stripe(`${process.env.STRIPE_PRIVATE_KEY}`)
 
 
+// round to the second decimal for stripe
+
+function roundToTwo(num) {
+  return +(Math.round(num + "e+2")  + "e-2");
+}
+
 router.post("/payment", async (req, res) => {
  const { items, amount } = req.body;
  
  const paymentIntent = await stripe.paymentIntents.create({ 
-   amount,
+   amount: roundToTwo((amount*100)),
    currency: "eur",
    automatic_payment_methods: {
      enabled: true,
