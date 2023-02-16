@@ -21,19 +21,19 @@ async function shop(slugify){
     };
 
     const user = await getUserByIdShop(shopValue.id_user);
+
     if (!user) {
         return null;
     };
 
     const articles = await getArticlesByIdShop(shopValue.id_shop);
+    console.log('articles :>> ', articles);
+
     if (!articles) {
         return null;
     };
 
     const address = await getAddressByIdShop(shopValue.id_shop);
-    if (!address) {
-        return null;
-    };
 
     return { user, shop: shopValue, articles, address };
 }
