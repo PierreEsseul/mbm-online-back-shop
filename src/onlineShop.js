@@ -3,7 +3,6 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-
 const pool = mysql.createPool({
     host: process.env.HOST_MYSQL,
     port: process.env.PORT_MYSQL,
@@ -27,7 +26,6 @@ async function shop(slugify){
     };
 
     const articles = await getArticlesByIdShop(shopValue.id_shop);
-    console.log('articles :>> ', articles);
 
     if (!articles) {
         return null;
